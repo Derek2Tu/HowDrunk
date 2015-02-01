@@ -1,12 +1,21 @@
 import time
 import Tkinter
 
-top = Tkinter.Tk()
 
+window = Tkinter.Tk()
 
-initmess = Tkinter.Message (top, text="Welcome to the BAC calculator")
+window.title("BAC Calculator")
+window.geometry("300x300")
 
-top.mainloop()
+lbl = Tkinter.Label(window, text="Calculate Your BAC")
+ent = Tkinter.Entry(window)
+btn = Tkinter.Button(window, text="GO!")
+
+lbl.pack()
+ent.pack()
+btn.pack()
+
+window.mainloop()
 
 """
 print "Welcome to the alcohol calculator"
