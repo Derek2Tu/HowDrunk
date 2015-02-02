@@ -1,7 +1,7 @@
 __author__ = 'Derek'
 
 class Alcoholic():
-    def __init__(self, name, weight, gender, standard_drinks, hours):
+    def __init__(self, name, weight, standard_drinks, hours, gender):
                 self._name = name
                 self._weight = weight
                 self._gender = gender
@@ -13,9 +13,14 @@ class Alcoholic():
                        "servings of alcohol in " + self._hours + " hours."
 
     def calc_bac(self):
-                bac = (self._standard_drinks * 0.06 * 100 * (1.055 / self._weight) * self._gender)\
-                      - (0.015 * self._hours)
-                return bac
+                if self._gender == "Male":
+                    gender_value = 0.68
+                else:
+                    gender_value = 0.55
+
+                bac = (float(self._standard_drinks) * 0.06 * 100 * (1.055 / float(self._weight)) * gender_value)\
+                      - (0.015 * float(self._hours))
+                return "Your blood alcohol content is " + str(bac)
 
 
 
